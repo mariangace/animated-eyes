@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Animated Eyes</title>
+  <link rel="stylesheet" href="styels.css"></style>
+</head>
+<body>
+  <div>
+  <div class="forhead">
+    <div class="ears">
+      <div class="ear left"></div>
+      <div class="ear right"></div>
+    </div>
+  </div>
+  <div class="face">
+    <div class="eyes">
+      <div class="eye"></div>
+      <div class="eye"></div>
+    </div>
+    <div class="cheeks">
+      <div class="cheek"></div>
+      <div class="cheek"></div>
+    </div>
+    <div class="mouth">
+      <div class="lip"></div>
+      <div class="lip"></div>
+    </div>
+  </div>
+  <div class="object">
+    <img src="./img/carrot.png" alt="carrot" width="50px" height="50px">
+  </div>
+</div>
+</body>
+<script>
+  
+  const eyeball =() => {
+    let eyes = document.querySelectorAll('.eye');
+    eyes.forEach(eye => {
+      let x = (eye.getBoundingClientRect().left) + (eye.clientWidth /2);
+      let y = (eye.getBoundingClientRect().top) + (eye.clientHeight /2);
+      let radian = Math.atan2(event.pageX - x, event.pageY - y);
+      let rot = (radian * (180 / Math.PI) * -1) + 0;
+      eye.style.transform = "rotate("+rot+"deg)";
+    })
+  }
+  document.querySelector('body')
+  .addEventListener('mousemove', eyeball);
+</script>
+</html>
